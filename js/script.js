@@ -192,7 +192,8 @@ modeBtns.forEach((btn) => {
 
 function playBeep() {
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const AudioCtx = window.AudioContext || /** @type {any} */ (window).webkitAudioContext;
+    const ctx = new AudioCtx();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.connect(gain);
