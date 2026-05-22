@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Username Modal -->
+  <div id="username-modal" class="modal-overlay hidden">
+    <div class="modal-box">
+      <h2>👋 Welcome!</h2>
+      <p>What should we call you?</p>
+      <input type="text" id="username-input" placeholder="Enter your name..." maxlength="30" />
+      <button id="username-save-btn">Let's Go</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <div id="greeting" class="greeting">Good morning!</div>
+      <div id="datetime" class="datetime"></div>
+    </div>
+    <div class="header-right">
+      <button id="edit-name-btn" class="icon-btn" title="Change name">✏️</button>
+      <button id="theme-toggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="dashboard">
+
+    <!-- Pomodoro Timer -->
+    <section class="card pomodoro-card">
+      <h2 class="card-title">🍅 Focus Timer</h2>
+      <div class="pomodoro-display">
+        <span id="pomodoro-time">25:00</span>
+      </div>
+      <div class="pomodoro-mode-btns">
+        <button class="mode-btn active" data-minutes="25">Focus</button>
+        <button class="mode-btn" data-minutes="5">Short Break</button>
+        <button class="mode-btn" data-minutes="15">Long Break</button>
+      </div>
+      <div class="pomodoro-controls">
+        <button id="pomodoro-start" class="btn btn-primary">Start</button>
+        <button id="pomodoro-reset" class="btn btn-secondary">Reset</button>
+      </div>
+      <div id="pomodoro-status" class="pomodoro-status"></div>
+    </section>
+
+    <!-- To-Do List -->
+    <section class="card todo-card">
+      <h2 class="card-title">✅ To-Do List</h2>
+      <div class="todo-input-row">
+        <input type="text" id="todo-input" placeholder="Add a new task..." maxlength="100" />
+        <button id="todo-add-btn" class="btn btn-primary">Add</button>
+      </div>
+      <div id="todo-error" class="todo-error hidden">Task already exists!</div>
+      <div class="todo-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Done</button>
+      </div>
+      <ul id="todo-list" class="todo-list"></ul>
+      <div class="todo-footer">
+        <span id="todo-count">0 tasks left</span>
+        <button id="clear-completed-btn" class="btn-link">Clear completed</button>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="card links-card">
+      <h2 class="card-title">🔗 Quick Links</h2>
+      <div class="links-input-row">
+        <input type="text" id="link-name-input" placeholder="Label" maxlength="30" />
+        <input type="url" id="link-url-input" placeholder="https://..." />
+        <button id="link-add-btn" class="btn btn-primary">Add</button>
+      </div>
+      <div id="link-error" class="todo-error hidden">Link already exists!</div>
+      <ul id="links-list" class="links-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
